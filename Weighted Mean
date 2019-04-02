@@ -1,0 +1,15 @@
+a = input()
+b = list(map(int, input().split()))
+c = list(map(int, input().split()))
+
+
+def weighted_mean(data1, data2):
+    hasil = 0
+    jumlah = sum(data2)
+    for x, y in enumerate(data1):
+        for m, l in enumerate(data2):
+            if x == m:
+                hasil += y * l
+    return round(hasil/jumlah, 1)
+
+print(weighted_mean(b, c))
