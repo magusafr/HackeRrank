@@ -1,0 +1,24 @@
+a = input()
+b = input().split()
+b = list(map(int, b))
+
+def median(data):
+    data.sort()
+    mid = len(data) // 2
+    return (data[mid] + data[~mid]) / 2
+
+def mode(data):
+    my_dict = {}
+    for i in data:
+        if i not in my_dict:
+            my_dict[i] = 1
+        else:
+            my_dict[i] += 1
+    
+    for x, y in my_dict.items():
+        if y == max(my_dict.values()):
+            return(x) 
+
+print(sum(b) / len(b))
+print(median(b))
+print(mode(b))
