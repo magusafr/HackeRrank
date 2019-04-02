@@ -1,0 +1,24 @@
+a = int(input())
+b = sorted(list(map(int, input().split())))
+
+def median(l):
+    half = len(l) // 2
+    l.sort()
+    if not len(l) % 2:
+        return (l[half - 1] + l[half]) / 2.0
+    return l[half]
+
+if a % 2 != 0:
+    idx_median = len(b) // 2
+    q1 = round(median(b[:idx_median]))
+    q2 = round(median(b))
+    q3 = round(median(b[idx_median+1:]))
+else:
+    total = len(b) // 2
+    q1 = round(median(b[:total]))
+    q2 = round(median(b))
+    q3 = round(median(b[total:]))
+
+print(q1)
+print(q2)
+print(q3)
