@@ -1,0 +1,25 @@
+def spear_correlation(iter, list1, list2):
+    rx = []
+    ry = []
+    di = []
+    di2 = []
+    sorted1 = sorted(list1)
+    sorted2 = sorted(list2)
+
+    for i in list1:
+        rx.append(sorted1.index(i)+1)
+
+    for i in list2:
+        ry.append(sorted2.index(i)+1)
+
+    for x, y in zip(rx, ry):
+        di.append(x-y)
+        di2.append((x-y)**2)
+
+    return 1 - ((6 * (sum(di2))) / (iter * (iter**2 - 1)))
+
+n = int(input())
+b = list(map(float, input().split())) 
+c = list(map(float, input().split()))
+
+print(round(spear_correlation(n, b, c), 3))
