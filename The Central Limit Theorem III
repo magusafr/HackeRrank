@@ -1,0 +1,12 @@
+sample = 100
+mean = 500
+std = 80
+
+std_sample = std / (100**0.5)
+
+# upper_z = x-50 / (1.96 * 8) 
+upper_z_value = (1.96 * std_sample)  + mean
+lower_z_value = (-1.96 * std_sample)  + mean
+
+print(round(lower_z_value, 2))
+print(round(upper_z_value, 2))
