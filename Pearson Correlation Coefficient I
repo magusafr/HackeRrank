@@ -1,0 +1,27 @@
+def std(data):
+    mean = sum(data) / len(data)
+    variance = []
+    for i in data:
+        variance.append((i - mean) ** 2)
+    sd = (sum(variance) / len(data)) ** 0.5
+    return sd
+
+def correlation(iter, list1, list2):
+    cummu = 0
+    mean1 = round(sum(list1)/len(list1), 4)
+    mean2 = round(sum(list2)/len(list2), 4)
+    std1 = std(list1)
+    std2 = std(list2)
+    for x, y in zip(list1, list2):
+        hasil1 = x - mean1
+        hasil2 = y - mean2
+        cummu += hasil1 * hasil2
+
+    return cummu / (iter * std1 * std2)
+
+
+a = int(input())
+b = list(map(float, input().split())) 
+c = list(map(float, input().split()))
+
+print(correlation(a, b, c))
