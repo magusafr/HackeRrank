@@ -4,7 +4,7 @@ b = list(map(int, input().split()))
 def std(data):
     mean = sum(data) / len(data)
     variance = []
-    for i in b:
+    for i in data:
         variance.append((i - mean) ** 2)
     sd = (sum(variance) / len(data)) ** 0.5
     return round(sd, 1)
