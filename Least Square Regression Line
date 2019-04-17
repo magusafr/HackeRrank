@@ -1,0 +1,12 @@
+def LSRL(input_, n, value):
+    n = n
+    XY = input_
+    sum_x, sum_y, sum_x2, sum_XY = map(sum, zip(*[(x, y, x**2, x * y) for x, y in XY]))
+    b = (n * sum_XY - sum_x * sum_y) / (n * sum_x2 - sum_x**2)
+    a = (sum_y / n) - b * (sum_x / n)
+
+    return a + (b*value)
+
+
+XY = [map(int, input().split()) for i in range(5)]
+print(round(LSRL(XY, 5, 80), 3))
