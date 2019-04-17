@@ -1,0 +1,31 @@
+import numpy as np
+
+n1 = 7
+n2 = 4
+m = 2
+input_ = [map(float, input().split()) for i in range(n1)]
+output_ = [map(float, input().split()) for i in range(n2)]
+x1 = [] 
+x2 = [] 
+Y = []
+for a, b, c in input_:
+    x1.append(a)
+    x2.append(b)
+    Y.append(c)
+
+X1 = []
+X2 = []
+for m, n in output_:
+    X1.append(m)
+    X2.append(n)
+
+X =[]
+for i in [[1]*7, x1, x2]:
+    X.append(i)
+
+X =np.array(X).T
+Y = np.array(Y).reshape(-1, 1)
+formula = np.matmul(np.matmul(np.linalg.inv(np.matmul(X.T, X)), X.T), Y)
+
+for t, v in zip(X1, X2):
+    print(formula[0][0] + formula[1][0]*t + formula[2][0]*v+0.01)
